@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRパーソナル診断 レポートジェネレーター</title>
+    <link rel="stylesheet" href="/static/style.css?v=2">
+</head>
+<body>
+    <div id="app">
+        <div id="login-screen">
+            <div class="app-branding">
+                <img src="/static/logo.png" alt="ロゴ">
+                <h1>一般社団法人HRアセスメント協会<br>レポートジェネレーター</h1>
+            </div>
+            <p>パスワードを入力してください</p>
+            <input type="password" id="password" placeholder="パスワード">
+            <button id="login-button">ログイン</button>
+            <p id="login-error" class="error-message"></p>
+        </div>
+
+        <div id="main-screen" style="display: none;">
+
+            <div class="admin-banner admin-only">
+                <p>管理者モードでログインしています</p>
+            </div>
+
+            <header>
+                <div class="header-logo">
+                    <img src="/static/logo.png" alt="ロゴ">
+                </div>
+                <h1 class="header-title">レポート生成</h1>
+                <button id="logout-button" class="logout">ログアウト</button>
+            </header>
+            <main>
+                <div id="input-form">
+                    <h2>12指標の数値を入力してください</h2>
+                    <div class="scores-grid">
+                        </div>
+                    <div class="buttons">
+                        <button id="generate-button">レポートを生成する</button>
+                        <button id="reset-button" class="secondary">リセット</button>
+                    </div>
+                </div>
+                <div id="result-area">
+                    <div id="report-header"></div>
+                    <div id="report-output-container">
+                        <h2>生成結果</h2>
+                        <div id="loading" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>AIがレポートを生成中です。1分ほどお待ちください...</p>
+                        </div>
+                        <div id="report-output"></div>
+                    </div>
+
+                    <div id="admin-area" class="admin-only">
+                        <h3>レビュー用情報</h3>
+                        <h4>参照したナレッジ</h4>
+                        <ul id="source-list"></ul>
+                        <h4>フィードバックを記録</h4>
+                        <!-- ▼▼▼ ここから追加 ▼▼▼ -->
+                        <div class="feedback-rating">
+                        <span>評価：</span>
+                        <input type="radio" id="rating5" name="feedback-rating" value="★★★★★"><label for="rating5">★</label>
+                        <input type="radio" id="rating4" name="feedback-rating" value="★★★★☆"><label for="rating4">★</label>
+                        <input type="radio" id="rating3" name="feedback-rating" value="★★★☆☆"><label for="rating3">★</label>
+                        <input type="radio" id="rating2" name="feedback-rating" value="★★☆☆☆"><label for="rating2">★</label>
+                        <input type="radio" id="rating1" name="feedback-rating" value="★☆☆☆☆"><label for="rating1">★</label>
+                    </div>
+                    <!-- ▲▲▲ ここまで追加 ▲▲▲ -->
+
+
+                        <textarea id="feedback-text" rows="4" placeholder="このレポートに関する改善点や気づきなどを記録..."></textarea>
+                        <button id="submit-feedback-button" class="secondary">フィードバックを送信</button>
+                        <p id="feedback-success" style="display: none; color: green;"></p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

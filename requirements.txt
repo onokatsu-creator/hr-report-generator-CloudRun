@@ -1,0 +1,14 @@
+Flask
+gunicorn
+requests
+openai
+numpy
+matplotlib
+python-dotenv
+markdown
+langchain-openai
+langchain-community
+faiss-cpu
+gspread
+google-auth-oauthlib
+pytz
