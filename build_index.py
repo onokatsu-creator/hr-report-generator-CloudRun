@@ -56,6 +56,10 @@ def create_vector_db():
     texts = text_splitter.split_documents(all_documents)
     print(f"ドキュメントを{len(texts)}個のチャンクに分割しました。")
 
+    if not texts:
+        print("エラー: 読み込まれたドキュメントからテキストチャンクを生成できませんでした。ベクトルデータベースは作成されません。")
+        return
+
     # 3. チャンクをベクトル化し、FAISSベクトルストアを作成する
     embeddings = OpenAIEmbeddings()
     db = FAISS.from_documents(texts, embeddings)
