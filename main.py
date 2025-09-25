@@ -7,7 +7,6 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-from dotenv import load_dotenv
 from flask import Flask, request, jsonify, render_template
 import markdown
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
@@ -52,7 +51,6 @@ JST = pytz.timezone('Asia/Tokyo')
 
 
 # --- 初期設定 ---
-load_dotenv()
 app = Flask(__name__)
 
 
