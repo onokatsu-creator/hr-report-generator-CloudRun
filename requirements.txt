@@ -16,3 +16,4 @@ faiss-cpu
 tiktoken==0.6.0
 pydantic>=2.0,<3.0
 pypdf==4.2.0
+gunicorn
